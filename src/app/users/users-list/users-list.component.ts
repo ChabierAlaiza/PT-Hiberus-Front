@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { UsersDetailsComponent } from '../users-details/users-details.component';
 
+
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',

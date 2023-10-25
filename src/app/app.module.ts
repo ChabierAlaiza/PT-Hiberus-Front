@@ -13,20 +13,23 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { LogOutComponent } from './login/log-out/log-out.component';
+import { LoginModule } from './login/login.module';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    LoginComponent,
-    RegisterComponent,
-    LogOutComponent
+    NavbarComponent
   ],
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     UsersModule,
+    LoginModule,
     TableModule,
     CardModule,
     DynamicDialogModule

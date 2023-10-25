@@ -1,1 +1,32 @@
-<p>users-details works!</p>
+<form>
+    <div class="mb-6">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
+        <input type="text" id="name" name="name" [(ngModel)]="user.name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Nombre" required>
+    </div>
+    <div class="mb-6">
+        <label for="surname" class="block mb-2 text-sm font-medium text-gray-900">Apellido</label>
+        <input type="text" id="surname" name="surname" [(ngModel)]="user.surname"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Apellido">
+    </div>
+    <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo
+            Electrónico</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Correo Electrónico">
+    </div>
+
+    <div class="flex justify-between">
+        <button
+            class="text-black bg-[#00CDE2] hover:bg-[#6deffd] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Guardar
+        </button>
+
+        <button
+            class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Eliminar
+        </button>
+    </div>
+
+</form>

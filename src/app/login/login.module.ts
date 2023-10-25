@@ -1,22 +1,25 @@
 import { NgModule } from "@angular/core";
-import { UsersListComponent } from "./users-list/users-list.component";
-import { UsersDetailsComponent } from './users-details/users-details.component';
-import { UsersRoutingModule } from "./users-routing.module";
 import { TableModule } from "primeng/table";
 import { CardModule } from "primeng/card";
 import { DynamicDialogModule, DynamicDialogRef } from "primeng/dynamicdialog";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
+import { LogOutComponent } from "./log-out/log-out.component";
+import { LoginRoutingModule } from "./login-routing.module";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
-        UsersListComponent,
-        UsersDetailsComponent
+        LoginComponent,
+        RegisterComponent,
+        LogOutComponent
     ],
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         FormsModule,
-        UsersRoutingModule,
+        LoginRoutingModule,
         TableModule,
         CardModule,
         DynamicDialogModule
@@ -26,4 +29,4 @@ import { FormsModule } from "@angular/forms";
         DynamicDialogRef
     ]
 })
-export class UsersModule { }
+export class LoginModule { }
