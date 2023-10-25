@@ -1,1 +1,37 @@
-<p>register works!</p>
+<div class="max-w-sm mx-auto flex flex-col mt-40 justify-center">
+    <h1 class="text-2xl text-center font-bold mb-10">Registrarse</h1>
+    <form [formGroup]="form" (ngSubmit)="register()" class="w-full">
+        <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
+            <input type="text" id="name" formControlName="name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Nombre">
+        </div>
+        <div class="mb-6">
+            <label for="surname" class="block mb-2 text-sm font-medium text-gray-900">Apellido</label>
+            <input type="text" id="surname" formControlName="surname"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Apellido">
+        </div>
+        <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo
+                Electrónico</label>
+            <input type="email" id="email" formControlName="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Correo Electrónico">
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
+            <input type="password" id="password" formControlName="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
+
+        <div class="text-center">
+            <p class="mb-6">Si ya tienes una cuenta <span class="text-blue-800 font-bold cursor-pointer"
+                    [routerLink]="['/login']">inicia sesión aquí</span></p>
+            <button type="submit"
+                class="text-black bg-[#00CDE2] hover:bg-[#6deffd] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center transition-colors duration-300">Registrarse</button>
+        </div>
+
+    </form>
+</div>
