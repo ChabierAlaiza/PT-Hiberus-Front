@@ -17,6 +17,9 @@ import { LoginModule } from './login/login.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MessagesModule } from 'primeng/messages';
+import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MessagesModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     UsersModule,
     LoginModule,
+    HomeModule,
     TableModule,
     CardModule,
     DynamicDialogModule

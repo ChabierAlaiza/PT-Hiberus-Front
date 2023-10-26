@@ -8,6 +8,8 @@ import { LogOutComponent } from "./log-out/log-out.component";
 import { LoginRoutingModule } from "./login-routing.module";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MessageService } from "primeng/api";
+import { MessagesModule } from "primeng/messages";
 
 @NgModule({
     declarations: [
@@ -22,11 +24,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         LoginRoutingModule,
         TableModule,
         CardModule,
-        DynamicDialogModule
+        DynamicDialogModule,
+        MessagesModule
     ],
     providers: [
         DynamicDialogRef,
-        DynamicDialogRef
+        DynamicDialogRef,
+        MessageService
     ]
 })
 export class LoginModule { }
