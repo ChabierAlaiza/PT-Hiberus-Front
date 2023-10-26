@@ -6,7 +6,7 @@ import { TableModule } from "primeng/table";
 import { CardModule } from "primeng/card";
 import { DynamicDialogModule, DynamicDialogRef } from "primeng/dynamicdialog";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -16,6 +16,7 @@ import { FormsModule } from "@angular/forms";
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         UsersRoutingModule,
         TableModule,
         CardModule,

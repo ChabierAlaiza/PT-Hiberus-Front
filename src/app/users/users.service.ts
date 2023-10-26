@@ -22,6 +22,14 @@ export class UsersService {
         return this.http.get(this.appUrl + this.apiUrl);
     }
 
+    get(userId: number): Observable<any> {
+        return this.http.get(this.appUrl + this.apiUrl + '/' + userId);
+    }
+
+    save(userId: number, user: User) {
+        return this.http.put(this.appUrl + this.apiUrl + '/' + userId, user);
+    }
+
     register(user: User): Observable<any> {
         return this.http.post(this.appUrl + this.apiUrl, user);
     }

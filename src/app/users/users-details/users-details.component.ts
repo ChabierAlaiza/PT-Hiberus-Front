@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { UsersService } from '../users.service';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-users-details',
@@ -9,15 +10,13 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrls: ['./users-details.component.css']
 })
 export class UsersDetailsComponent {
-  public user: any = {
-    name: "Chabier",
-    email: "chabier@chabier.com",
-    surname: "Alaiza",
-  };
+  public user: any = {};
+
 
   constructor(
     private ref: DynamicDialogRef,
-    private config: DynamicDialogConfig
+    private config: DynamicDialogConfig,
+    private usersService: UsersService
   ) {
   }
 
@@ -26,13 +25,25 @@ export class UsersDetailsComponent {
   }
 
   loadData() {
-
+    this.usersService.get(this.config.data.userId).subscribe(
+      data => {
+        this.user = data;
+      }
+    )
   }
 
   save() {
+    console.log(this.user);
+    this.usersService.save(this.user.id, this.user).subscribe(
+      data => {
+        this.ref.close();
+      }
+    )
   }
 
   delete() {
+    this.user.deleted = true;
+    this.save();
   }
 
 

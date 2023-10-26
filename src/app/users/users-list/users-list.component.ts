@@ -32,16 +32,14 @@ export class UsersListComponent {
   editUser(user_id: number) {
     const ref = this.dialogService.open(UsersDetailsComponent, {
       data: {
-        user_id: user_id
+        userId: user_id
       },
       header: "Ficha de usuario",
       width: "65%",
       baseZIndex: 300
     });
     ref.onClose.subscribe((data: any) => {
-      if (data) {
-        this.loadData();
-      }
+      this.loadData();
     });
 
   }
