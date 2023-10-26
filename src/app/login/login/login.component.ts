@@ -38,7 +38,8 @@ export class LoginComponent {
     this.loginService.login(user).subscribe(
       data => {
         this.setLocalStorage(data);
-        this.router.navigate(['/']);
+        this.loginService.setIsLogged(true);
+        this.router.navigate(['/inicio']);
       },
       error => {
         this.messageService.add({ severity: 'error', detail: error.error.message });
@@ -48,7 +49,7 @@ export class LoginComponent {
   }
 
   setLocalStorage(data) {
-    localStorage.setItem('name', data.name);
+    localStorage.setItem('token', data.token);
   }
 
 }

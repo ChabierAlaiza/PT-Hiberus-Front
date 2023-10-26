@@ -6,7 +6,6 @@ const routes: Routes = [
     {
         path: 'inicio', component: HomeComponent
     },
-    { path: '**', redirectTo: '/inicio ', pathMatch: 'full' }
 ];
 
 @NgModule({

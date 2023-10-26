@@ -11,6 +11,9 @@ export class LoginService {
     appUrl: string;
     apiUrl: string;
 
+    isLogged: boolean = false;
+    onLoginStateChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
     constructor(
         private http: HttpClient
     ) {
@@ -20,6 +23,20 @@ export class LoginService {
 
     login(user: User): Observable<any> {
         return this.http.post(this.appUrl + this.apiUrl, user);
+    }
+
+    remove(key: string) {
+        localStorage.removeItem(key);
+    }
+
+    logout() {
+        this.remove("token");
+        this.setIsLogged(false);
+    }
+
+    setIsLogged(state: boolean) {
+        this.isLogged = state;
+        this.onLoginStateChange.emit(this.isLogged);
     }
 
 }

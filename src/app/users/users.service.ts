@@ -18,6 +18,10 @@ export class UsersService {
         this.apiUrl = "/api/users";
     }
 
+    getAll(): Observable<any> {
+        return this.http.get(this.appUrl + this.apiUrl);
+    }
+
     register(user: User): Observable<any> {
         return this.http.post(this.appUrl + this.apiUrl, user);
     }

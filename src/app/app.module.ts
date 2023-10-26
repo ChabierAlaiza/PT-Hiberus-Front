@@ -16,10 +16,14 @@ import { LogOutComponent } from './login/log-out/log-out.component';
 import { LoginModule } from './login/login.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
+
+
+//INTERCEPTORS
+import { AddTokenInterceptor } from './helpers/add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { HomeModule } from './home/home.module';
     DynamicDialogModule
   ],
   providers: [
-    DialogService
+    DialogService,
+    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

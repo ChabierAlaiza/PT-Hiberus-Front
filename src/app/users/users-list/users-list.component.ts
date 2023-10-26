@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { UsersDetailsComponent } from '../users-details/users-details.component';
+import { UsersService } from '../users.service';
 
 
 @Component({
@@ -9,23 +10,11 @@ import { UsersDetailsComponent } from '../users-details/users-details.component'
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent {
-  public users: any[] = [
-    {
-      name: "Chabier",
-      email: "chabier@chabier.com"
-    },
-    {
-      name: "Valeria",
-      email: "valeria@valeria.com"
-    },
-    {
-      name: "Ejemplo",
-      email: "ejemplo@ejemplo.com"
-    },
-  ];
+  public users: any[] = [];
 
   constructor(
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +22,11 @@ export class UsersListComponent {
   }
 
   loadData() {
-
+    this.usersService.getAll().subscribe(
+      data => {
+        this.users = data;
+      }
+    )
   }
 
   editUser(user_id: number) {
